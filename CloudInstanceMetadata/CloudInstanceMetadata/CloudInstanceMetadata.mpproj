@@ -54,6 +54,9 @@
     <Compile Include="ManagementPack.mpx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Monitoring\Discoveries\Discovery.AzureVM.Windows.mpx">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Service Model\Classes\Class.IaaSVM.AWSEC2.mpx">
       <SubType>Code</SubType>
     </Compile>
@@ -63,12 +66,23 @@
     <Compile Include="Service Model\Classes\Class.IaasVM.mpx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Type Library\Modules\Data Sources\DataSource.WindowsAzureVMDiscovery.mpx">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Monitoring" />
+    <Folder Include="Monitoring\Discoveries" />
+    <Folder Include="Resources" />
+    <Folder Include="Resources\Scripts" />
     <Folder Include="Service Model" />
     <Folder Include="Service Model\Classes" />
     <Folder Include="Type Library" />
     <Folder Include="Type Library\Modules" />
+    <Folder Include="Type Library\Modules\Data Sources" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Scripts\CloudInstanceMetadataWindowsAzureDiscovery.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VSAC\Microsoft.SystemCenter.OperationsManager.targets" />
 </Project>

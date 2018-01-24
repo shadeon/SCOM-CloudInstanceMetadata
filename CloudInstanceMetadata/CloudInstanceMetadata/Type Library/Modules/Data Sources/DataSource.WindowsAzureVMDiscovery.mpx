@@ -1,0 +1,90 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      
+      <DataSourceModuleType ID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" Accessibility="Public" Batching="false">
+        <Configuration>
+          <xsd:element name="PrincipalName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="IntervalSeconds" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="SyncTime" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="TimeoutSeconds" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="ForceAzure" type="xsd:boolean" minOccurs="1" maxOccurs="1" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" ParameterType="int" Selector="$Config/IntervalSeconds$"/>
+          <OverrideableParameter ID="SyncTime" ParameterType="string" Selector="$Config/SyncTime$"/>
+          <OverrideableParameter ID="TimeoutSeconds" ParameterType="int" Selector="$Config/TimeoutSeconds$"/>
+          <OverrideableParameter ID="ForceAzure" ParameterType="bool" Selector="$Config/ForceAzure$"/>
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              
+              <DataSource ID="Schedular" TypeID="System!System.Discovery.Scheduler">
+                <Scheduler>
+                  <SimpleReccuringSchedule>
+                    <Interval>$Config/IntervalSeconds$</Interval>
+                    <SyncTime>$Config/SyncTime$</SyncTime>
+                  </SimpleReccuringSchedule>
+                  <ExcludeDates />
+                </Scheduler>
+              </DataSource>
+              
+              <ProbeAction ID="PS" TypeID="Windows!Microsoft.Windows.PowerShellDiscoveryProbe">
+                <ScriptName>CloudInstanceMetadataWindowsAzureDiscovery.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Resources/Scripts/CloudInstanceMetadataWindowsAzureDiscovery.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>PrincipalName</Name>
+                    <Value>$Config/PrincipalName$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>ForceAzure</Name>
+                    <Value>$Config/ForceAzure$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>$Config/TimeoutSeconds$</TimeoutSeconds>
+              </ProbeAction>
+
+            </MemberModules>
+            <Composition>
+              <Node ID="PS">
+                <Node ID="Schedular" />
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.Discovery.Data</OutputType>
+      </DataSourceModuleType>
+      
+    </ModuleTypes>  
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        
+        <DisplayString ElementID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM">
+          <Name>Windows Azure VM discovery data source</Name>
+          <Description>Discovers details of Windows Azure IaaS vm.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" SubElementID="IntervalSeconds">
+          <Name>Interval (Seconds)</Name>
+          <Description>The number of seconds between discovery attempts.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" SubElementID="SyncTime">
+          <Name>Sync Time (hh:mm)</Name>
+          <Description>Time around which discovery attempts is synchronised.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" SubElementID="TimeoutSeconds">
+          <Name>Timeout (Seconds)</Name>
+          <Description>The number of seconds after which the script will be terminated.</Description>
+        </DisplayString>
+        
+      </DisplayStrings>
+    </LanguagePack>
+
+  </LanguagePacks>
+</ManagementPackFragment>

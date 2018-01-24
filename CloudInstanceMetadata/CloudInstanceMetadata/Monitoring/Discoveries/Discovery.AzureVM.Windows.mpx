@@ -1,0 +1,32 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Discoveries>
+      
+      <Discovery ID="CloudInstanceMetadata.Discovery.Azure.WindowsVM" Target="Windows!Microsoft.Windows.Computer" Enabled="false" Priority="Normal" Remotable="false" ConfirmDelivery="false">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryClass TypeID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows" />
+        </DiscoveryTypes>
+        <DataSource TypeID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" ID="DS">
+          <PrincipalName>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</PrincipalName>
+          <IntervalSeconds>86400</IntervalSeconds>
+          <SyncTime></SyncTime>
+          <TimeoutSeconds>300</TimeoutSeconds>
+          <ForceAzure>false</ForceAzure>
+        </DataSource>
+      </Discovery>
+      
+    </Discoveries>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="CloudInstanceMetadata.Discovery.Azure.WindowsVM">
+          <Name>Discover Azure Windows VM information</Name>
+          <Description>Discovers details of an Azure Windows IaaS VM using the instance Metadata service.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+
+  </LanguagePacks>
+</ManagementPackFragment>
