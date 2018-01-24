@@ -1,0 +1,123 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure" Base="CloudInstanceMetadata.Class.IaaSVM" Accessibility="Public" Abstract="true" Hosted="false" Singleton="false">
+          <Property ID="Location" Key="false" Type="string" />
+          <Property ID="Offer" Key="false" Type="string" />
+          <Property ID="OSType" Key="false" Type="string" />
+          <Property ID="PlacementGroupId" Key="false" Type="string" />
+          <Property ID="FaultDomain" Key="false" Type="int" />
+          <Property ID="UpdateDomain" Key="false" Type="int" />
+          <Property ID="Publisher" Key="false" Type="string" />
+          <Property ID="ResourceGroup" Key="false" Type="string" />
+          <Property ID="SKU" Key="false" Type="string" />
+          <Property ID="SubscriptionId" Key="false" Type="string" />
+          <Property ID="Tags" Key="false" Type="string" />
+          <Property ID="Version" Key="false" Type="string" />
+          <Property ID="Size" Key="false" Type="string" />
+        </ClassType>
+
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows" Base="CloudInstanceMetadata.Class.IaaSVM" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+        </ClassType>
+
+      </ClassTypes>
+      <RelationshipTypes>
+
+        <RelationshipType ID="CloudInstanceMetaData.Relationship.WindowsComputer.Hosts.IaaSVM.Azure.Windows" Accessibility="Public" Base="System!System.Hosting" Abstract="false">
+          <Source ID="Source" Type="Windows!Microsoft.Windows.Computer"/>
+          <Target ID="Target" Type="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows"/>
+        </RelationshipType>
+        
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure">
+          <Name>Azure IaaS virtual machine</Name>
+          <Description>An abstract base class for Azure IaaS virtual machines.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="FaultDomain">
+          <Name>Fault Domain</Name>
+          <Description>The fault domain your VM is running in</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Location">
+          <Name>Location</Name>
+          <Description>The location the VM is running in.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Offer">
+          <Name>Offer</Name>
+          <Description>Offer information for the VM image. This value is only present for images deployed from Azure image gallery.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="OSType">
+          <Name>Operating System</Name>
+          <Description>Will either be Linux or Windows</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="PlacementGroupId">
+          <Name>Placement Group</Name>
+          <Description>Placement Group of your virtual machine scale set</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Publisher">
+          <Name>Publisher</Name>
+          <Description>Publisher of the VM image.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="ResourceGroup">
+          <Name>Resource Group</Name>
+          <Description>Name of the Resource group this VM is in</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Size">
+          <Name>Size</Name>
+          <Description>Azure VM size</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="SKU">
+          <Name>Image SKU</Name>
+          <Description>Specific SKU for the VM image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="SubscriptionId">
+          <Name>Subscription Id</Name>
+          <Description>The Id of the parent subscription</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Tags">
+          <Name>Tags</Name>
+          <Description>Tags applied to the VM</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="UpdateDomain">
+          <Name>Update Domain</Name>
+          <Description>The update domain your VM is running in</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Version">
+          <Name>Version</Name>
+          <Description>Version of the VM image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows">
+          <Name>Azure IaaS Windows virtual machine</Name>
+          <Description>A Windows virtual machine hosted on Azure IaaS.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetaData.Relationship.WindowsComputer.Hosts.IaaSVM.Azure.Windows">
+          <Name>Windows Computer hosts IaaS Azure Windows VM</Name>
+          <Description>A Windows Computer hosts IaaS Azure Windows VM instance</Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

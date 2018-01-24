@@ -1,0 +1,42 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM" Base="System!System.LogicalEntity" Accessibility="Public" Abstract="true" Hosted="false" Singleton="false">
+          <Property ID="Id" Key="true" Type="string" />
+          <Property ID="PublicIPv4" Key="false" Type="string" />
+          <Property ID="PrivateIPv4" Key="false" Type="string" />
+        </ClassType>
+      
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM">
+          <Name>IaaS VM Base class</Name>
+          <Description>An abstraact base class that contains base identity information for IaaS VMs.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM" SubElementID="Id">
+          <Name>VM Id</Name>
+          <Description>A unique identifier for this VM instance on the cloud platform</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM" SubElementID="PrivateIPv4">
+          <Name>Private IPv4</Name>
+          <Description>Private IPv4 addresses</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM" SubElementID="PublicIPv4">
+          <Name>Public IPv4</Name>
+          <Description>Public IPv4 addresses</Description>
+        </DisplayString>
+        
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

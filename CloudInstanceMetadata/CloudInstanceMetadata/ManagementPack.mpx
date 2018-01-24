@@ -4,9 +4,19 @@
       <DisplayStrings>
         <DisplayString ElementID="CloudInstanceMetadata">
           <Name>Cloud IaaS VM Instance metadata discovery</Name>
-          <Description>Discovers details of IaaS VMs using the locally accessable Instance Metadata service from the given cloud vendor.</Description>
+          <Description>Discovers details of IaaS VMs using the locally accessible Instance Metadata service from the given cloud vendor.</Description>
         </DisplayString>
       </DisplayStrings>
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="CloudInstanceMetadata" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Discovers details of IaaS VMs using the locally accessible Instance Metadata service from the given cloud vendor.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
     </LanguagePack>
   </LanguagePacks>
 </ManagementPackFragment>
