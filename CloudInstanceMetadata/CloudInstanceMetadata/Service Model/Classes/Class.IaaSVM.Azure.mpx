@@ -4,6 +4,7 @@
       <ClassTypes>
 
         <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure" Base="CloudInstanceMetadata.Class.IaaSVM" Accessibility="Public" Abstract="true" Hosted="false" Singleton="false">
+          <Property ID="Name" Key="false" Type="string"/>
           <Property ID="Location" Key="false" Type="string" />
           <Property ID="Offer" Key="false" Type="string" />
           <Property ID="OSType" Key="false" Type="string" />
@@ -19,7 +20,7 @@
           <Property ID="Size" Key="false" Type="string" />
         </ClassType>
 
-        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows" Base="CloudInstanceMetadata.Class.IaaSVM" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows" Base="CloudInstanceMetadata.Class.IaaSVM.Azure" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
         </ClassType>
 
       </ClassTypes>
@@ -105,6 +106,11 @@
         <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Version">
           <Name>Version</Name>
           <Description>Version of the VM image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Name">
+          <Name>VM Name</Name>
+          <Description>The name of the VM as it appears in Azure</Description>
         </DisplayString>
 
         <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows">
