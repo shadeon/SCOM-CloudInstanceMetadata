@@ -9,6 +9,10 @@
 *.userosscache
 *.sln.docstates
 
+# Management Pack Projects
+/ManagementPacks/*/MPResources.resources
+*.snk
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

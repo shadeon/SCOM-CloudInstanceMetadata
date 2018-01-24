@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "CloudInstanceMetadata", "CloudInstanceMetadata\CloudInstanceMetadata.mpproj", "{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Debug|x86.ActiveCfg = Debug|x86
+		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Debug|x86.Build.0 = Debug|x86
+		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Release|x86.ActiveCfg = Release|x86
+		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F2AC828-D68C-417F-A3A5-551B13C6F37C}
+	EndGlobalSection
+EndGlobal
