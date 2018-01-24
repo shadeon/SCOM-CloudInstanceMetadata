@@ -54,6 +54,9 @@
     <Compile Include="ManagementPack.mpx">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Service Model\Classes\Class.IaaSVM.AWSEC2.mpx">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Service Model\Classes\Class.IaaSVM.Azure.mpx">
       <SubType>Code</SubType>
     </Compile>

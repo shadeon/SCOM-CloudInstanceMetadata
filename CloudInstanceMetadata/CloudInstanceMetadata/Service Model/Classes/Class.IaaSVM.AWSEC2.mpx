@@ -1,0 +1,95 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" Base="CloudInstanceMetadata.Class.IaaSVM" Accessibility="Public" Abstract="true" Hosted="false" Singleton="false">
+          <Property ID="AvailabilityZone" Key="false" Type="string" />
+          <Property ID="AccountId" Key="false" Type="string" />
+          <Property ID="InstanceType" Key="false" Type="string"/>
+          <Property ID="ImageId" Key="false" Type="string"/>
+          <Property ID="Region" Key="false" Type="string"/>
+          <Property ID="SecurityGroups" Key="false" Type="string"/>
+          <Property ID="PublicHostname" Key="false" Type="string"/>
+          <Property ID="PrivateHostname" Key="false" Type="string"/>
+
+        </ClassType>
+
+        <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows" Base="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
+        </ClassType>
+
+      </ClassTypes>
+      <RelationshipTypes>
+
+        <RelationshipType ID="CloudInstanceMetaData.Relationship.WindowsComputer.Hosts.IaaSVM.AWSEC2.Windows" Accessibility="Public" Base="System!System.Hosting" Abstract="false">
+          <Source ID="Source" Type="Windows!Microsoft.Windows.Computer"/>
+          <Target ID="Target" Type="CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows"/>
+        </RelationshipType>
+
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2">
+          <Name>AWS EC2 IaaS virtual machine</Name>
+          <Description>An abstract base class for AWSEC2 IaaS virtual machines.</Description>
+        </DisplayString>
+
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="AccountId">
+          <Name>Account Id</Name>
+          <Description>The Id of the parent account</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="AvailabilityZone">
+          <Name>Availability Zone</Name>
+          <Description>The Availability Zone the VM is running in.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="ImageId">
+          <Name>Image Id</Name>
+          <Description>The AMI ID used to launch the instance</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="InstanceType">
+          <Name>Instance Type</Name>
+          <Description>The AWS instance type used to launch the image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="PrivateHostname">
+          <Name>Private Hostname</Name>
+          <Description>The private hostname of eth 0</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="PublicHostname">
+          <Name>Public Hostname</Name>
+          <Description>The public hostname of the instance, if a public IP is assigned</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="Region">
+          <Name>Region</Name>
+          <Description>The region the VM is running in</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2" SubElementID="SecurityGroups">
+          <Name>Security Groups</Name>
+          <Description>The names of security groups applied to this instance</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows">
+          <Name>AWS EC2 IaaS Windows virtual machine</Name>
+          <Description>A Windows virtual machine hosted on AWSEC2 IaaS.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetaData.Relationship.WindowsComputer.Hosts.IaaSVM.AWSEC2.Windows">
+          <Name>Windows Computer hosts IaaS AWS EC2 Windows VM</Name>
+          <Description>A Windows Computer hosts IaaS AWS EC2 Windows VM instance</Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
