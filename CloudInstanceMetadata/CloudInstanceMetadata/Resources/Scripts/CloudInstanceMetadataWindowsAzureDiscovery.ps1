@@ -12,17 +12,31 @@ $ForceAzure = [bool]::Parse($ForceAzure)
 $ScomAPI = New-Object -ComObject "MOM.ScriptAPI"
 $discoveryData = $ScomAPI.CreateDiscoveryData(0,'$MPElement$','$Target/Id$')
 
+function Log-SCOMMessage {
+	Param(
+		[string]
+		$message
+	)
+
+	$ScomAPI.LogScriptEvent("CloudInstanceMetadataWindowsAzureDiscovery.ps1", 6458, 0, $message)
+}
+
+Log-SCOMMessage -message "Script starting up"
+
 # Test if Azure agent is running or BIOS and Manufacturer indicate MS VM
-$azureAgentPresent = $null -eq (Get-Service -Name WindowsAzureGuestAgent -ErrorAction SilentlyContinue)
+$azureAgentPresent = $null -ne (Get-Service -Name WindowsAzureGuestAgent -ErrorAction SilentlyContinue)
 $computerProduct = (Get-WmiObject -Class Win32_ComputerSystemProduct)
 $isMicrosoftVM = $computerProduct.Vendor -eq 'Microsoft Corporation' -and $computerProduct.Name -eq 'Virtual Machine'
 
 if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 
+	Log-SCOMMessage -message "BIOS, running agents, or discovery override indicate we should try and contact the metadata service"
 	# Attempt to contact Instance metadata
+	
 	Try {
-		$response = Invoke-webrequest -Headers @{"Metadata"="true"} -URI 'http://169.254.169.254/metadata/instance?api-version=2017-08-01' -Method get -TimeoutSec 1 -ErrorAction SilentlyContinue
+		$response = Invoke-webrequest -Headers @{"Metadata"="true"} -URI 'http://169.254.169.254/metadata/instance?api-version=2017-08-01' -Method get -TimeoutSec 1 -UseBasicParsing -ErrorAction SilentlyContinue
 		if ($response.statusCode -eq 200){
+			Log-SCOMMessage -message "Processing instance metadata"
 			# Create discovery data
 			$metadata = $response.content | ConvertFrom-Json
 
@@ -73,9 +87,19 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 			$discoveryData.AddInstance($vm)
 
 		}
+		else {
+			Log-SCOMMessage -message "$($response.statusCode) Response returned attempting to contact instance metadata service."
+		}
 		
-	} catch {}
+	} catch {
+		if ($_.Exception -is [System.Net.WebException] -and $_.Exception.Status -eq [System.Net.WebExceptionStatus]::Timeout) {
+			Log-SCOMMessage -message "Instance metadata servcie not available due to timeout - this is probably a Hyper-V VM."
+		} else {
+			Log-SCOMMessage -message "Instance metadata servcie not available.  Error message is:`n $($_.Exception)"
+		}
+	}
 }
 
 # Return discovery data to SCOM
-Write-output $discoveryData
+$discoveryData
+Log-SCOMMessage -message "Discovery complete."

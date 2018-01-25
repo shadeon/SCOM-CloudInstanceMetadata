@@ -82,6 +82,11 @@
           <Name>Timeout (Seconds)</Name>
           <Description>The number of seconds after which the script will be terminated.</Description>
         </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.DataSource.Discovery.WindowsAzureVM" SubElementID="ForceAzure">
+          <Name>Force Discovery</Name>
+          <Description>Forces the script to attempt to contact the instance metadata service.</Description>
+        </DisplayString>
         
       </DisplayStrings>
     </LanguagePack>
