@@ -1,0 +1,87 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="CloudInstanceMetadata.Class.Group.EC2WindowsVMs" Accessibility="Public" Abstract="false" Base="MSIGL!Microsoft.SystemCenter.InstanceGroup" Hosted="false" Singleton="true" Extension="false" />
+        <ClassType ID="CloudInstanceMetadata.Class.Group.AzureWindowsVMs" Accessibility="Public" Abstract="false" Base="MSIGL!Microsoft.SystemCenter.InstanceGroup" Hosted="false" Singleton="true" Extension="false" />
+        
+      </ClassTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <Monitoring>
+    <Discoveries>
+      
+      <Discovery ID="CloudInstanceMetadata.Discovery.Group.EC2WindowsVMs" Enabled="true" Target="CloudInstanceMetadata.Class.Group.EC2WindowsVMs" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryRelationship TypeID="MSIGL!Microsoft.SystemCenter.InstanceGroupContainsEntities" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="MSIGL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$</RelationshipClass>
+              <Expression>
+                <Contains maxDepth="1">
+                  <MonitoringClass>$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows"]$</MonitoringClass>
+                </Contains>
+              </Expression>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+
+      <Discovery ID="CloudInstanceMetadata.Discovery.Group.AzureWindowsVMs" Enabled="true" Target="CloudInstanceMetadata.Class.Group.AzureWindowsVMs" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryRelationship TypeID="MSIGL!Microsoft.SystemCenter.InstanceGroupContainsEntities" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="MSIGL!Microsoft.SystemCenter.InstanceGroupContainsEntities"]$</RelationshipClass>
+              <Expression>
+                <Contains maxDepth="1">
+                  <MonitoringClass>$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows"]$</MonitoringClass>
+                </Contains>
+              </Expression>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+      
+    </Discoveries>
+  </Monitoring>
+  
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.Group.EC2WindowsVMs">
+          <Name>Amazon AWS EC2 IaaS Windows Computers</Name>
+          <Description>Contains all Windows computers that are agent monitored and hosted on EC2 IaaS VMs.</Description>
+        </DisplayString>
+        <DisplayString ElementID="CloudInstanceMetadata.Discovery.Group.EC2WindowsVMs">
+          <Name>Populate Amazon AWS EC2 IaaS Windows Computers</Name>
+          <Description>This discovery rule populates the group 'Amazon AWS EC2 IaaS Windows Computers'</Description>
+        </DisplayString>
+        
+        <DisplayString ElementID="CloudInstanceMetadata.Class.Group.AzureWindowsVMs">
+          <Name>Azure IaaS Windows Computers</Name>
+          <Description>Contains all Windows computers that are agent monitored and hosted on Azure IaaS VMs.</Description>
+        </DisplayString>
+        <DisplayString ElementID="CloudInstanceMetadata.Discovery.Group.AzureWindowsVMs">
+          <Name>Populate Azure IaaS Windows Computers</Name>
+          <Description>This discovery rule populates the group 'Azure IaaS Windows Computers'</Description>
+        </DisplayString>
+        
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>
