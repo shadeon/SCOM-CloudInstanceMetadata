@@ -1,0 +1,32 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Discoveries>
+
+      <Discovery ID="CloudInstanceMetadata.Discovery.AWSEC2.WindowsVM" Target="Windows!Microsoft.Windows.Computer" Enabled="false" Priority="Normal" Remotable="false" ConfirmDelivery="false">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryClass TypeID="CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows" />
+        </DiscoveryTypes>
+        <DataSource TypeID="CloudInstanceMetadata.DataSource.Discovery.WindowsEC2VM" ID="DS">
+          <PrincipalName>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</PrincipalName>
+          <IntervalSeconds>86400</IntervalSeconds>
+          <SyncTime></SyncTime>
+          <TimeoutSeconds>300</TimeoutSeconds>
+          <ForceEC2>false</ForceEC2>
+        </DataSource>
+      </Discovery>
+
+    </Discoveries>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="CloudInstanceMetadata.Discovery.AWSEC2.WindowsVM">
+          <Name>Discover AWS EC2 Windows VM information</Name>
+          <Description>Discovers details of an AWS EC2 Windows IaaS VM using the instance Metadata service.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+
+  </LanguagePacks>
+</ManagementPackFragment>
