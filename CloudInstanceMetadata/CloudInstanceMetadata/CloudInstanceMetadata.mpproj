@@ -22,11 +22,12 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>bin\Release\</OutputPath>
-    <DelaySigning>false</DelaySigning>
-    <Company>MyCompany</Company>
+    <DelaySigning>False</DelaySigning>
+    <Company>Company</Company>
     <Copyright>Copyright (c) MyCompany. All rights reserved.</Copyright>
     <DelaySign>false</DelaySign>
-    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyFile>..\..\key.snk</AssemblyOriginatorKeyFile>
+    <GenerateSealed>True</GenerateSealed>
   </PropertyGroup>
   <ItemGroup>
     <ManagementPackReference Include="Microsoft.SystemCenter.InstanceGroup.Library">
