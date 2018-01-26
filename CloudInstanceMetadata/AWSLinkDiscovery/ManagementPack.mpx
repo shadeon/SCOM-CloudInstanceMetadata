@@ -1,0 +1,12 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="AWSLinkDiscovery">
+          <Name>AWS EC2 VM to Computer link MP</Name>
+          <Description>Discovers links between AWS EC2 IaaS VMs and the related computers using a class hosted on the computer.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

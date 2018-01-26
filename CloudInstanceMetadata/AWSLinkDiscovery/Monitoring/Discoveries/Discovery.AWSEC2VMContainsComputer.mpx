@@ -1,0 +1,54 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Discoveries>
+
+      <Discovery ID="AWSLinkDiscovery.Discovery.Service.AmazonInsanceContainsComputer" Enabled="true" Target="AWS!Amazon.AmazonWebServices.AmazonInstance" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryRelationship TypeID="AWS!Amazon.AmazonWebServices.Relationship.AmazonInstanceContainsWindowsComputer" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <GroupMonitoringClass>$MPElement[Name="AWS!Amazon.AmazonWebServices.AmazonInstance"]$</GroupMonitoringClass>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="AWS!Amazon.AmazonWebServices.Relationship.AmazonInstanceContainsWindowsComputer"]$</RelationshipClass>
+              <Expression>
+                <Contains maxDepth="1">
+                  <MonitoringClass>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM.AWSEC2.Windows"]$</MonitoringClass>
+                  <Expression>
+                    <SimpleExpression>
+                      <ValueExpression>
+                        <Property>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM"]/Id$</Property>
+                      </ValueExpression>
+                      <Operator>Equal</Operator>
+                      <ValueExpression>
+                        <Value>$Target/Property[Type="AWS!Amazon.AmazonWebServices.AmazonInstance"]/InstanceId$</Value>
+                      </ValueExpression>
+                    </SimpleExpression>
+                  </Expression>
+                </Contains>
+              </Expression>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+
+    </Discoveries>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <!-- The name of the group that will appear to users in the console. -->
+        <DisplayString ElementID="AWSLinkDiscovery.Discovery.Service.AmazonInsanceContainsComputer">
+          <Name>Discover Associated Windows Computer</Name>
+          <Description>This discovery rule discovers a relationship between the EC2 Instance object and the appropriate Windows Computer.</Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

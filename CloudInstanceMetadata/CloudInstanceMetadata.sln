@@ -7,6 +7,8 @@ Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "CloudInstanceMetadata", "Cl
 EndProject
 Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "AzureLinkDiscovery", "AzureLinkDiscovery\AzureLinkDiscovery.mpproj", "{F76A043B-38C6-4783-B3F7-1DA7F160D28B}"
 EndProject
+Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "AWSLinkDiscovery", "AWSLinkDiscovery\AWSLinkDiscovery.mpproj", "{F33387DF-711F-4C9B-8B2E-BE96B81F3561}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +23,10 @@ Global
 		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Debug|x86.Build.0 = Debug|x86
 		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Release|x86.ActiveCfg = Release|x86
 		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Release|x86.Build.0 = Release|x86
+		{F33387DF-711F-4C9B-8B2E-BE96B81F3561}.Debug|x86.ActiveCfg = Debug|x86
+		{F33387DF-711F-4C9B-8B2E-BE96B81F3561}.Debug|x86.Build.0 = Debug|x86
+		{F33387DF-711F-4C9B-8B2E-BE96B81F3561}.Release|x86.ActiveCfg = Release|x86
+		{F33387DF-711F-4C9B-8B2E-BE96B81F3561}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
