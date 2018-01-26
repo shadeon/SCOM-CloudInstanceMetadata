@@ -1,0 +1,26 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <RelationshipTypes>
+
+        <RelationshipType ID="AzureLinkDiscovery.Relationship.AzureGenericVM.Contains.WindowsComputer" Base="System!System.Containment" Abstract="false" Accessibility="Public">
+          <Source ID="Source" Type="Azure!Microsoft.SystemCenter.MicrosoftAzure.GenericVirtualMachine"/>
+          <Target ID="Target" Type="Windows!Microsoft.Windows.Computer"/>
+        </RelationshipType>
+        
+      </RelationshipTypes>
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="AzureLinkDiscovery.Relationship.AzureGenericVM.Contains.WindowsComputer">
+          <Name>Azure VM Contains Windows Computer</Name>
+          <Description></Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

@@ -1,0 +1,12 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="AzureLinkDiscovery">
+          <Name>Azure VM to Computer link MP</Name>
+          <Description>Discovers a containment relationship between Azure VM objects and the relevant Computer based on the discovered CloudInstanceMetadata objects.</Description>
+        </DisplayString>
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

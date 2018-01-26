@@ -1,0 +1,80 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Monitoring>
+    <Discoveries>
+
+      <Discovery ID="AzureLinkDiscovery.Discovery.Service.GenericVirtualMachineContainsComputer" Enabled="true" Target="Azure!Microsoft.SystemCenter.MicrosoftAzure.GenericVirtualMachine" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryRelationship TypeID="AzureLinkDiscovery.Relationship.AzureGenericVM.Contains.WindowsComputer" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="SC!Microsoft.SystemCenter.GroupPopulator">
+          <RuleId>$MPElement$</RuleId>
+          <GroupInstanceId>$Target/Id$</GroupInstanceId>
+          <GroupMonitoringClass>$MPElement[Name="Azure!Microsoft.SystemCenter.MicrosoftAzure.GenericVirtualMachine"]$</GroupMonitoringClass>
+          <MembershipRules>
+            <MembershipRule>
+              <MonitoringClass>$MPElement[Name="Windows!Microsoft.Windows.Computer"]$</MonitoringClass>
+              <RelationshipClass>$MPElement[Name="AzureLinkDiscovery.Relationship.AzureGenericVM.Contains.WindowsComputer"]$</RelationshipClass>
+              <Expression>
+                <Contains maxDepth="1">
+                  <MonitoringClass>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM.Azure.Windows"]$</MonitoringClass>
+                  <Expression>
+                    <And>
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpression>
+                            <Property>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM.Azure"]/SubscriptionId$</Property>
+                          </ValueExpression>
+                          <Operator>Equal</Operator>
+                          <ValueExpression>
+                            <Value>$Target/Property[Type="Azure!Microsoft.SystemCenter.MicrosoftAzure.AzureServiceGeneric"]/SubscriptionId$</Value>
+                          </ValueExpression>
+                        </SimpleExpression>
+                      </Expression>
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpression>
+                            <Property>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM.Azure"]/ResourceGroup$</Property>
+                          </ValueExpression>
+                          <Operator>Equal</Operator>
+                          <ValueExpression>
+                            <Value>$Target/Property[Type="Azure!Microsoft.SystemCenter.MicrosoftAzure.ArmService"]/ResourceGroup$</Value>
+                          </ValueExpression>
+                        </SimpleExpression>
+                      </Expression>
+                      <Expression>
+                        <SimpleExpression>
+                          <ValueExpression>
+                            <Property>$MPElement[Name="CIM!CloudInstanceMetadata.Class.IaaSVM.Azure"]/Name$</Property>
+                          </ValueExpression>
+                          <Operator>Equal</Operator>
+                          <ValueExpression>
+                            <Value>$Target/Property[Type="Azure!Microsoft.SystemCenter.MicrosoftAzure.AzureServiceGeneric"]/ServiceName$</Value>
+                          </ValueExpression>
+                        </SimpleExpression>
+                      </Expression>
+                    </And>
+                  </Expression>
+                </Contains>
+              </Expression>
+            </MembershipRule>
+          </MembershipRules>
+        </DataSource>
+      </Discovery>
+      
+    </Discoveries>
+  </Monitoring>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <!-- The name of the group that will appear to users in the console. -->
+        <DisplayString ElementID="AzureLinkDiscovery.Discovery.Service.GenericVirtualMachineContainsComputer">
+          <Name>Discover Associated Windows Computer</Name>
+          <Description>This discovery rule discovers a relationship between the Azure object and the appropriate Windows Computer.</Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

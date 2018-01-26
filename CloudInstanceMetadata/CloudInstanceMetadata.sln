@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "CloudInstanceMetadata", "CloudInstanceMetadata\CloudInstanceMetadata.mpproj", "{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}"
+EndProject
+Project("{D4B43EB3-688B-4EEE-86BD-088F0B28ABB3}") = "AzureLinkDiscovery", "AzureLinkDiscovery\AzureLinkDiscovery.mpproj", "{F76A043B-38C6-4783-B3F7-1DA7F160D28B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Debug|x86.Build.0 = Debug|x86
 		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Release|x86.ActiveCfg = Release|x86
 		{AC8555D0-CD1D-4294-A9F1-D6D3F361DF6C}.Release|x86.Build.0 = Release|x86
+		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Debug|x86.ActiveCfg = Debug|x86
+		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Debug|x86.Build.0 = Debug|x86
+		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Release|x86.ActiveCfg = Release|x86
+		{F76A043B-38C6-4783-B3F7-1DA7F160D28B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
