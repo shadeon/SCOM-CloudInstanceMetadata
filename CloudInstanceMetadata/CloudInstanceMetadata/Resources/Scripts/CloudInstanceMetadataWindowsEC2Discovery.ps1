@@ -73,20 +73,34 @@ if ($ForceEC2 -or $awsAgentPresent -or $isAmazonVM) {
 					}
 				}
 
-				$public = (Invoke-WebRequest -Uri "$($interfaceUrl)$($interface)public-ipv4s" @webParams).Content
-
-				foreach ($ip in $public.Split("`n")) {
-					if (-not [string]::IsNullOrEmpty($ip)) {
-						$publicIPv4 += $ip
+				try {
+					$public = (Invoke-WebRequest -Uri "$($interfaceUrl)$($interface)public-ipv4s" @webParams).Content
+					foreach ($ip in $public.Split("`n")) {
+						if (-not [string]::IsNullOrEmpty($ip)) {
+							$publicIPv4 += $ip
+						}
 					}
+
+				} catch {
+					if (-not ($_.Exception -is [System.Net.WebException] -and $_.Exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError -and $_.Exception.Response -and $_.Exception.Response.StatusCode -eq ([System.Net.HttpStatusCode]::NotFound))) {
+                        throw			            
+		            }
 				}
 
-				$pHostname = (Invoke-WebRequest -Uri "$($interfaceUrl)$($interface)public-hostname" @webParams).Content
-				foreach ($name in $pHostname.Split("`n")) {
-					if (-not [string]::IsNullOrEmpty($name)) {
-						$publicHostname += $name
+				try {
+					$pHostname = (Invoke-WebRequest -Uri "$($interfaceUrl)$($interface)public-hostname" @webParams).Content
+					foreach ($name in $pHostname.Split("`n")) {
+						if (-not [string]::IsNullOrEmpty($name)) {
+							$publicHostname += $name
+						}
 					}
+
+				} catch {
+					if (-not ($_.Exception -is [System.Net.WebException] -and $_.Exception.Status -eq [System.Net.WebExceptionStatus]::ProtocolError -and $_.Exception.Response -and $_.Exception.Response.StatusCode -eq ([System.Net.HttpStatusCode]::NotFound))) {
+                        throw			            
+		            }
 				}
+
 
 				$lHostname = (Invoke-WebRequest -Uri "$($interfaceUrl)$($interface)local-hostname" @webParams).Content
 				foreach ($name in $lHostname.Split("`n")) {
