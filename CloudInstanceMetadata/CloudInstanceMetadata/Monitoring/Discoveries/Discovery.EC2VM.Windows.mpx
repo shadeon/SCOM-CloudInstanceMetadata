@@ -26,6 +26,18 @@
           <Description>Discovers details of an AWS EC2 Windows IaaS VM using the instance Metadata service.</Description>
         </DisplayString>
       </DisplayStrings>
+      
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="CloudInstanceMetadata.Discovery.AWSEC2.WindowsVM" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Discovers details of Windows AWS EC2 IaaS VMs using the locally accessible Instance Metadata service.</para>
+              <para>See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html for further details on the VM instance metadata service.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
     </LanguagePack>
 
   </LanguagePacks>

@@ -82,6 +82,26 @@
         </DisplayString>
         
       </DisplayStrings>
+      
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="CloudInstanceMetadata.Discovery.Group.AzureWindowsVMs" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Populates group with Windows computers that are hosted on Azure IaaS VMs, as discovered using the Instance metadata service.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+        <KnowledgeArticle ElementID="CloudInstanceMetadata.Discovery.Group.EC2WindowsVMs" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Populates group with Windows computers that are hosted on Amazon EC2 IaaS VMs, as discovered using the Instance metadata service.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
+      
     </LanguagePack>
   </LanguagePacks>
 </ManagementPackFragment>
