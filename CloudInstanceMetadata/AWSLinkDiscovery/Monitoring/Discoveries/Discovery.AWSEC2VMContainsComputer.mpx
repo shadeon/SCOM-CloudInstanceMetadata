@@ -49,6 +49,19 @@
         </DisplayString>
 
       </DisplayStrings>
+      
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="AWSLinkDiscovery.Discovery.Service.AmazonInsanceContainsComputer" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Discovers a containment relationship between EC2 VM objects and the relevant Computer based on the discovered CloudInstanceMetadata objects.</para>
+              <para>The VM must be discoverd by both the Amazon EC2 MP and be agent managed with a discovered CloudInstanceMetadata object before this process will complete.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
+      
     </LanguagePack>
   </LanguagePacks>
 </ManagementPackFragment>

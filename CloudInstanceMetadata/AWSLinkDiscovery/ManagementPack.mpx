@@ -7,6 +7,18 @@
           <Description>Discovers links between AWS EC2 IaaS VMs and the related computers using a class hosted on the computer.</Description>
         </DisplayString>
       </DisplayStrings>
+
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="AWSLinkDiscovery" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Discovers links between AWS EC2 IaaS VMs and the related computers using a class hosted on the computer.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
+
     </LanguagePack>
   </LanguagePacks>
 </ManagementPackFragment>
