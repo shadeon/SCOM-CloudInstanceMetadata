@@ -1,0 +1,11 @@
+﻿{
+  "id": "c85ebdbe-a2dc-4b5a-bb90-bd42c9fa8063",
+  "schemaVersion": 1,
+  "name": "Cloud IaaS Discovery",
+  "internalName": "cloudiaasdiscovery",
+  "author": "shadeon",
+  "version": "2018-02061510",
+  "isBuiltIn": false,
+  "isUserCreated": false,
+  "isCommunity": true
+}

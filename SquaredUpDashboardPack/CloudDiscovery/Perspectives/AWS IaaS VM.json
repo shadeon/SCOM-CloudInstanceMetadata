@@ -1,0 +1,201 @@
+﻿{
+  "id": "5f863ac8-04c0-494e-a701-39710b32a814",
+  "name": "AWS IaaS VM",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 29.4770206022187,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/sla",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "eb38af8f-323c-241c-c771-8acfd8739678"
+                        },
+                        "extendedProperties": true
+                      },
+                      "source": {
+                        "timeframe": {
+                          "type": "inherit"
+                        },
+                        "sloId": "6d780c91-1579-8e05-bae1-9be459ef0d98"
+                      },
+                      "display": {
+                        "showIcon": true,
+                        "showLabel": true,
+                        "showGauge": true,
+                        "style": "inline",
+                        "min": 0,
+                        "max": 100,
+                        "label": "custom",
+                        "customLabel": "{{displayName.split('.')[0]}}"
+                      }
+                    },
+                    "description": "",
+                    "title": "SLA"
+                  },
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "bbf20d14-cc7c-d6ea-255f-374633fad2b7"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "columns": 1,
+                        "height": 42,
+                        "fontsize": 5,
+                        "sublabel": "custom",
+                        "sublabelCustomLabel": "Instace Id: {{name}}<br/> Availability Zone: {{properties.availabilityZone}}<br/> Region: {{properties.region}} <br /> Instance Type:  {{properties.instanceType}} <br/> Image Id:  {{properties.imageId}} <br /> Public IP: {{properties.publicIPv4}} <br /> Private IP: {{properties.privateIPv4}}<br/> Security Groups: {{properties.securityGroups}} <br />",
+                        "customLabel": "{{properties.principalName.split('.')[0]}}"
+                      }
+                    },
+                    "title": "Properties",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/status",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "eb38af8f-323c-241c-c771-8acfd8739678"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "sublabel": "healthstatesummary",
+                        "customLabel": "{{#each properties.tags.split(', ')}}{{..replace('=',': ')}}<br />{{/each}}"
+                      }
+                    },
+                    "title": "Tags",
+                    "description": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        },
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "eb38af8f-323c-241c-c771-8acfd8739678"
+                        }
+                      },
+                      "display": {
+                        "limit": 5,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false
+                      }
+                    },
+                    "title": "Alerts",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/monitors",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "eb38af8f-323c-241c-c771-8acfd8739678",
+                          "criteria": ""
+                        }
+                      },
+                      "source": {
+                        "monitorIds": [
+                          "4d495e54-6d5b-2e77-ea2b-0eb262b142f5",
+                          "ddee00ab-9b0f-5d19-f199-61173bd44fdc",
+                          "42b65125-74ec-93aa-7217-cd55a6924ae4",
+                          "0190fd2e-c8b1-25fb-ff47-3e57b6a288a1"
+                        ]
+                      },
+                      "display": {
+                        "healthStates": [
+                          "Warning",
+                          "Error",
+                          "Success",
+                          "Uninitialized"
+                        ]
+                      }
+                    },
+                    "title": "Monitors",
+                    "description": ""
+                  }
+                ]
+              }
+            ],
+            "width": 70.5229793977813
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 12,
+  "match": {
+    "type": "scom/object",
+    "groupIds": "06c56baf-2dca-257e-6d97-763ad58143e1"
+  },
+  "dashboardMode": false
+}

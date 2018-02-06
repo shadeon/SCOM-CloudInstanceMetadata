@@ -1,0 +1,188 @@
+﻿{
+  "id": "006ce35b-40e1-4a21-b44e-329971acfd06",
+  "name": "EC2 Instance",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 22.558318028562812,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/text",
+                    "config": {
+                      "display": {
+                        "contentTemplate": "<div class='c-table'><div class='c-table-inner'>{{#each properties}}{{#if this != 'undefined'}}<div class='c-row'><div class='c-cell'>{{@key}}</div><div class='c-cell'><b>{{.}}</b></div></div>{{/if}}{{/each}}</div></div>"
+                      }
+                    },
+                    "title": "Instance Properties",
+                    "description": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/monitors",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "aa5d88cd-17f0-0ad9-60de-7ad83af9b346"
+                        }
+                      },
+                      "source": {
+                        "monitorIds": []
+                      },
+                      "display": {
+                        "healthStates": [
+                          "Warning",
+                          "Error",
+                          "Success"
+                        ],
+                        "zoom": "list"
+                      }
+                    },
+                    "title": "EC2 Platform checks",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "e3764a21-180b-5011-c9de-5a88ef843407"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "columns": 1,
+                        "height": 1,
+                        "fontsize": 5,
+                        "sublabel": "custom",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        },
+                        "customLabel": "{{properties.id}} ({{properties.size}}gb)",
+                        "sublabelCustomLabel": "{{properties.attachment}}"
+                      }
+                    },
+                    "description": "",
+                    "title": "EBS Volumes"
+                  }
+                ]
+              }
+            ],
+            "width": 27.443211833069206
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        }
+                      },
+                      "display": {
+                        "limit": 5,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false
+                      }
+                    },
+                    "title": "Alerts",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/status",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "recursive",
+                          "criteria": "",
+                          "classId": "1e516693-7cd7-6578-8f60-4bcb17bc5568"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "name",
+                        "sublabel": "healthstatesummary",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        }
+                      }
+                    },
+                    "title": "Cloudwatch Alarms",
+                    "description": ""
+                  }
+                ]
+              }
+            ],
+            "width": 49.998470138367978
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 2007,
+  "match": {
+    "type": "scom/object",
+    "classIds": "eb38af8f-323c-241c-c771-8acfd8739678"
+  },
+  "dashboardMode": false
+}

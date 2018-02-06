@@ -1,0 +1,90 @@
+﻿{
+  "id": "a6d297fe-7d11-46a8-adf4-2d4beccc5384",
+  "type": "page/scomdashboard",
+  "title": "IaaS VMs (Agent based)",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 50,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "groupId": "dea80822-bc92-ca82-1c8d-5c48f6e4a30b"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "name",
+                        "columns": 5,
+                        "height": 4,
+                        "fontsize": 5,
+                        "sublabel": "laststatechange",
+                        "customLabel": "{{properties.principalName.split('.')[0]}}",
+                        "sublabelCustomLabel": "{{properties.region}}{{properties.location}}",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        }
+                      }
+                    },
+                    "description": "",
+                    "title": "Azure VMs"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "groupId": "06c56baf-2dca-257e-6d97-763ad58143e1"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "name",
+                        "columns": 5,
+                        "height": 5,
+                        "fontsize": 5,
+                        "sublabel": "laststatechange",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        }
+                      }
+                    },
+                    "title": "Amazon VMs",
+                    "description": ""
+                  }
+                ]
+              }
+            ],
+            "width": 50
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000"
+}
