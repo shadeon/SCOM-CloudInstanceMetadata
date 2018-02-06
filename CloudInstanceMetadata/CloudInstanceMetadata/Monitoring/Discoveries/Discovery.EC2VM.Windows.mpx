@@ -32,7 +32,7 @@
           <MamlContent>
             <section xmlns="http://schemas.microsoft.com/maml/2004/10">
               <title>Summary</title>
-              <para>Discovers details of Windows AWS EC2 IaaS VMs using the locally accessible Instance Metadata service.</para>
+              <para>Discovers details of Windows AWS EC2 IaaS VMs using the locally accessible Instance Metadata service.  This discovery is disabled by default.</para>
               <para>See https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html for further details on the VM instance metadata service.</para>
             </section>
           </MamlContent>

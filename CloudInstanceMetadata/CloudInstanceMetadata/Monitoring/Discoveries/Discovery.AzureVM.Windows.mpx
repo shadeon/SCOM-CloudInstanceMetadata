@@ -33,7 +33,7 @@
           <MamlContent>
             <section xmlns="http://schemas.microsoft.com/maml/2004/10">
               <title>Summary</title>
-              <para>Discovers details of Windows Azure IaaS VMs using the locally accessible Instance Metadata service.</para>
+              <para>Discovers details of Windows Azure IaaS VMs using the locally accessible Instance Metadata service.  This discovery is disabled by default.</para>
               <para>If the metadata instance is not availible on your VM you may need to add a tag (if the VM was created after Sept 2016), or for older VMs add/remove extensions or data disks to the VM to refresh metadata.</para>
               <para>See https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service for further details on the VM instance metadata service.</para>
             </section>
