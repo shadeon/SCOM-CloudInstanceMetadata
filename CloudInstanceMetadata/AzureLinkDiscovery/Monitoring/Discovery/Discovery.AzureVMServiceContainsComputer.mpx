@@ -75,6 +75,19 @@
         </DisplayString>
 
       </DisplayStrings>
+
+      <KnowledgeArticles>
+        <KnowledgeArticle ElementID="AzureLinkDiscovery.Discovery.Service.GenericVirtualMachineContainsComputer" Visible="true">
+          <MamlContent>
+            <section xmlns="http://schemas.microsoft.com/maml/2004/10">
+              <title>Summary</title>
+              <para>Discovers a containment relationship between Azure VM objects and the relevant Computer based on the discovered CloudInstanceMetadata objects.</para>
+              <para>The VM must be discoverd by both the Azure MP and be agent managed with a discovered CloudInstanceMetadata object before this process will complete.</para>
+            </section>
+          </MamlContent>
+        </KnowledgeArticle>
+      </KnowledgeArticles>
+    
     </LanguagePack>
   </LanguagePacks>
 </ManagementPackFragment>
