@@ -33,12 +33,28 @@ This management pack uses a group populator discovery to create relationships be
 
 ## Troubleshooting
 
+### Discovery
+
 The PowerShell scripts by default run every 24 hours (or immediately after the agent is installed) and log to the `OperationsManager` event log using the following IDs:
 
 * 6458 for Azure
 * 6459 for AWS EC2
 
 The discoveries use a series of "hints" (software installed, BIOS manufacturer) to decide if it is worth attempting to contact the instance metadata webservice. If you have some VMs where the discovery is not detecting that it should contact the service, you can override the discovery and enable the ForceAzure/ForceEC2 property, so they'll always try to contact it.
+
+### Instance metadata service
+
+You can contact the instance service from within a VM at <http://168.254.169.254>.  The exact path and necessary headers varies depending on the cloud platform; see below for further information.
+
+#### Azure
+
+If the metadata instance is not available on your VM you may need to add a tag (if the VM was created after Sept 2016), or for older VMs add/remove extensions or data disks to the VM to refresh metadata.
+
+See <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service> for further details on the VM instance metadata service.
+
+#### AWS EC2
+
+See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html> for further details on the VM instance metadata service.
 
 ## Squared Up Dashboard pack
 
