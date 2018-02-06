@@ -5,7 +5,7 @@
     <RootNamespace>AzureLinkDiscovery</RootNamespace>
     <Name>AzureLinkDiscovery</Name>
     <ManagementPackName>AzureLinkDiscovery</ManagementPackName>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.0</Version>
     <MpFrameworkVersion>v7.0.2</MpFrameworkVersion>
     <MpFrameworkProfile>OM</MpFrameworkProfile>
     <ProductVersion>1.1.0.0</ProductVersion>
