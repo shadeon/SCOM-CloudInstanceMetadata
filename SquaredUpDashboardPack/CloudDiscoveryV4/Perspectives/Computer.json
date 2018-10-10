@@ -1,0 +1,160 @@
+﻿{
+  "id": "a93ae072-a95d-4b91-8c79-5664e4d2b1f0",
+  "name": "Computer",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 13.089005235602087,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/sla",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "b4a14ffd-52c8-064f-c936-67616c245b35"
+                        },
+                        "extendedProperties": true
+                      },
+                      "source": {
+                        "timeframe": {
+                          "type": "inherit"
+                        },
+                        "sloId": "6d780c91-1579-8e05-bae1-9be459ef0d98"
+                      },
+                      "display": {
+                        "showIcon": true,
+                        "showLabel": true,
+                        "showGauge": true,
+                        "style": "tile",
+                        "min": 0,
+                        "max": 100,
+                        "label": "name"
+                      }
+                    },
+                    "description": "",
+                    "title": "SLA"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/dynamic-table",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "b4a14ffd-52c8-064f-c936-67616c245b35"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "source": {}
+                    },
+                    "title": "Operating System",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/dynamic-table",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "recursive",
+                          "criteria": "",
+                          "classId": "d0718456-aa7e-7b92-8a46-6a2d762d32a7"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "source": {
+                        "aggregateValueType": "average"
+                      }
+                    },
+                    "title": "Disks",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        },
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "b4a14ffd-52c8-064f-c936-67616c245b35"
+                        }
+                      },
+                      "display": {
+                        "limit": 5,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false
+                      }
+                    },
+                    "title": "Alerts",
+                    "description": ""
+                  }
+                ]
+              }
+            ],
+            "width": 86.910994764397913
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 1007,
+  "match": {
+    "type": "scom/object",
+    "classIds": "eb38af8f-323c-241c-c771-8acfd8739678"
+  },
+  "dashboardMode": false
+}

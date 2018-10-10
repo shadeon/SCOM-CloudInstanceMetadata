@@ -1,0 +1,175 @@
+﻿{
+  "id": "0750ead0-c737-4f98-aa82-6f5f990982b3",
+  "name": "Azure IaaS VM",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 23.983095615425256,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/sla",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "8650ceff-2989-f0f1-67c2-6860b01f74e1",
+                          "criteria": ""
+                        },
+                        "extendedProperties": true
+                      },
+                      "source": {
+                        "timeframe": {
+                          "type": "inherit"
+                        },
+                        "sloId": "6d780c91-1579-8e05-bae1-9be459ef0d98"
+                      },
+                      "display": {
+                        "showIcon": true,
+                        "showLabel": true,
+                        "showGauge": true,
+                        "style": "inline",
+                        "min": 0,
+                        "max": 100,
+                        "label": "custom",
+                        "customLabel": "{{properties.serviceName}}"
+                      }
+                    },
+                    "title": "Azure Virtual Machine",
+                    "description": "Health from Azure's perspepctive"
+                  },
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "a022706c-33de-161f-0611-f0ffaf4d53ea"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "columns": 1,
+                        "height": 51,
+                        "fontsize": 5,
+                        "sublabel": "custom",
+                        "customLabel": "VM Name: {{properties.name}}",
+                        "sublabelCustomLabel": "Resource Group: {{properties.resourceGroup}} <br/>Region: {{properties.location}} <br /> {{properties.size}} | {{properties.sku}} <br/>Private IPs: {{properties.privateIPv4}}<br/>Public IPs: {{properties.publicIPv4}} <br /> Subscription Id: {{properties.subscriptionId}}<br /> Tags: {{properties.tags}}"
+                      }
+                    },
+                    "description": "",
+                    "title": "Properties"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        },
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "8650ceff-2989-f0f1-67c2-6860b01f74e1"
+                        }
+                      },
+                      "display": {
+                        "limit": 5,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false
+                      }
+                    },
+                    "title": "Alerts",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/monitors",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "8650ceff-2989-f0f1-67c2-6860b01f74e1"
+                        }
+                      },
+                      "source": {
+                        "monitorIds": []
+                      },
+                      "display": {
+                        "healthStates": [
+                          "Warning",
+                          "Error",
+                          "Success",
+                          "Uninitialized"
+                        ]
+                      }
+                    },
+                    "title": "Cloud Monitoring",
+                    "description": "Monitoring configured in Azure"
+                  }
+                ]
+              }
+            ],
+            "width": 76.016904384574744
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 12,
+  "match": {
+    "type": "scom/object",
+    "groupIds": "dea80822-bc92-ca82-1c8d-5c48f6e4a30b"
+  },
+  "dashboardMode": false
+}

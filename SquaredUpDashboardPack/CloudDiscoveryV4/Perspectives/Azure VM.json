@@ -1,0 +1,149 @@
+﻿{
+  "id": "46fc810c-040a-40ec-ab3e-c7b3328047fd",
+  "name": "Azure VM",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 26.96335078534031,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "e2169e37-ff79-4877-5aff-987aaf0f9dbf",
+                          "criteria": ""
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "columns": 1,
+                        "height": 1,
+                        "fontsize": 5,
+                        "sublabel": "laststatechange",
+                        "customLabel": "{{properties.displayName}} || {{properties.location}}"
+                      }
+                    },
+                    "title": "Resource Group",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/text",
+                    "config": {
+                      "display": {
+                        "contentTemplate": "<div class='c-table'><div class='c-table-inner'>{{#each properties}}{{#if this != 'undefined'}}<div class='c-row'><div class='c-cell'>{{@key}}</div><div class='c-cell'><b>{{.}}</b></div></div>{{/if}}{{/each}}</div></div>"
+                      }
+                    },
+                    "description": "",
+                    "title": "Instance Properties"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "type": "children",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "51c933e7-726b-28de-2290-4744203025a7"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "sublabel": "laststatechange",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        },
+                        "customLabel": "{{properties.serviceName}}",
+                        "zoom": "column"
+                      }
+                    },
+                    "title": "Azure Insights Alerts",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        }
+                      },
+                      "display": {
+                        "limit": 10,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false
+                      }
+                    },
+                    "title": "Open Alerts",
+                    "description": "Last 30 days"
+                  }
+                ]
+              }
+            ],
+            "width": 73.03664921465969
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 1040,
+  "match": {
+    "type": "scom/object",
+    "classIds": "8650ceff-2989-f0f1-67c2-6860b01f74e1"
+  },
+  "dashboardMode": false
+}

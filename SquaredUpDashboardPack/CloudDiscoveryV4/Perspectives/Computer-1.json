@@ -1,0 +1,118 @@
+﻿{
+  "id": "e2270060-14ad-4b2a-9549-65a24dd4b287",
+  "name": "Computer",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 23.455497382198956,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/text",
+                    "config": {
+                      "display": {
+                        "contentTemplate": "<div class='c-table'><div class='c-table-inner'>{{#each properties}}{{#if this != 'undefined'}}<div class='c-row'><div class='c-cell'>{{@key}}</div><div class='c-cell'><b>{{.}}</b></div></div>{{/if}}{{/each}}</div></div>"
+                      }
+                    },
+                    "description": "",
+                    "title": "Properties"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/dynamic-table",
+                    "config": {
+                      "context": {
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "classId": "b4a14ffd-52c8-064f-c936-67616c245b35"
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "source": {}
+                    },
+                    "title": "Operating System",
+                    "description": ""
+                  },
+                  {
+                    "_type": "tile/alert-list",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "severities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "priorities": [
+                          "0",
+                          "1",
+                          "2"
+                        ],
+                        "sources": [
+                          "monitor",
+                          "rule"
+                        ],
+                        "owner": "any",
+                        "states": [
+                          "-1"
+                        ],
+                        "timeframe": {
+                          "type": "fixed",
+                          "range": "Last30Days"
+                        },
+                        "scope": {
+                          "type": "parents",
+                          "traversalDepth": "oneLevel",
+                          "criteria": "",
+                          "classId": "885bc562-ed36-c548-b938-44ce5ba7ba2b"
+                        }
+                      },
+                      "display": {
+                        "limit": 5,
+                        "columns": [
+                          "severity",
+                          "name",
+                          "monitoringObjectDisplayName",
+                          "monitoringObjectPath",
+                          "resolutionStateName",
+                          "timeRaised"
+                        ],
+                        "showAll": false,
+                        "showTitles": true
+                      }
+                    },
+                    "title": "Open Alerts",
+                    "description": "Last 30 days"
+                  }
+                ]
+              }
+            ],
+            "width": 76.544502617801044
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000",
+  "rank": 1007,
+  "match": {
+    "id": "ebf8a70a-cb78-d137-4481-938a220a330c",
+    "classIds": "4648b30c-8831-35ba-d52d-f0b8b49ea071"
+  }
+}

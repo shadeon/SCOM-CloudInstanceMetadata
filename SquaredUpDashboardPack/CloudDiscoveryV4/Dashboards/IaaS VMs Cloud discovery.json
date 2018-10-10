@@ -1,0 +1,93 @@
+﻿{
+  "id": "9799d781-06a9-45a8-b38b-c5580572782b",
+  "type": "page/scomdashboard",
+  "title": "IaaS VMs (Cloud discovery)",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 50.000000000000014,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "classId": "eb38af8f-323c-241c-c771-8acfd8739678",
+                          "groupId": "",
+                          "criteria": ""
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "name",
+                        "columns": 5,
+                        "height": 5,
+                        "fontsize": 5,
+                        "sublabel": "laststatechange",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        }
+                      }
+                    },
+                    "description": "Cloud Monitoring",
+                    "title": "AWS EC2 VMs"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status-block",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "classId": "8650ceff-2989-f0f1-67c2-6860b01f74e1",
+                          "groupId": "",
+                          "criteria": ""
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "columns": 5,
+                        "height": 5,
+                        "fontsize": 5,
+                        "sublabel": "laststatechange",
+                        "sort": {
+                          "property": "healthState",
+                          "order": "desc"
+                        },
+                        "customLabel": "{{properties.serviceName}}"
+                      }
+                    },
+                    "title": "Azure VMs",
+                    "description": "Cloud monitoring"
+                  }
+                ]
+              }
+            ],
+            "width": 49.999999999999993
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000"
+}

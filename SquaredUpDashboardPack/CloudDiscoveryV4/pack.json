@@ -1,0 +1,10 @@
+﻿{
+  "id": "4b37a25a-373e-45a7-bab1-62990f68a5c4",
+  "name": "Cloud IaaS Discovery",
+  "internalName": "cloudiaasdiscovery",
+  "version": "1.0",
+  "sharing":{
+    "category": "Teams/Cloud IaaS",
+    "author": "shadeon"
+  }
+}

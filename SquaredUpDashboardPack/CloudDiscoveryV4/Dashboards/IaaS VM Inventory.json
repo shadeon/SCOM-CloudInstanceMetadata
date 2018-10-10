@@ -1,0 +1,54 @@
+﻿{
+  "id": "82a6656c-e53e-4036-a331-7e80b1d98de7",
+  "type": "page/scomdashboard",
+  "title": "IaaS VM Inventory",
+  "content": {
+    "_type": "layout/list",
+    "contents": [
+      {
+        "_type": "layout/column",
+        "columns": [
+          {
+            "width": 100,
+            "contents": [
+              {
+                "_type": "layout/list",
+                "contents": [
+                  {
+                    "_type": "tile/status",
+                    "config": {
+                      "context": {},
+                      "source": {
+                        "scope": {
+                          "classId": "4648b30c-8831-35ba-d52d-f0b8b49ea071",
+                          "groupId": "",
+                          "criteria": ""
+                        },
+                        "extendedProperties": true,
+                        "alerts": true
+                      },
+                      "display": {
+                        "label": "custom",
+                        "sublabel": "custom",
+                        "group": {
+                          "property": "classes[0].displayName",
+                          "order": "asc"
+                        },
+                        "customLabel": "{{properties.principalName}}",
+                        "sublabelCustomLabel": "{{properties.instanceType}}{{properties.size}} in {{properties.region}}{{properties.location}}",
+                        "zoom": "column"
+                      }
+                    },
+                    "description": "By Cloud Platform",
+                    "title": "VMs - Size and location"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "derivedFrom": "00000000-0000-0000-0000-000000000000"
+}
