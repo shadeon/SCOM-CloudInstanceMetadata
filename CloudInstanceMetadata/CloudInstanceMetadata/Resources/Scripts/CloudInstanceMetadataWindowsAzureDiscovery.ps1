@@ -34,7 +34,7 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 	# Attempt to contact Instance metadata
 	
 	Try {
-		$response = Invoke-webrequest -Headers @{"Metadata"="true"} -URI 'http://169.254.169.254/metadata/instance?api-version=2017-08-01' -Method get -TimeoutSec 1 -UseBasicParsing -ErrorAction SilentlyContinue
+		$response = Invoke-webrequest -Headers @{"Metadata"="true"} -URI 'http://169.254.169.254/metadata/instance?api-version=2019-08-15' -Method get -TimeoutSec 1 -UseBasicParsing -ErrorAction SilentlyContinue
 		if ($response.statusCode -eq 200){
 			Log-SCOMMessage -message "Processing instance metadata"
 			# Create discovery data
@@ -81,8 +81,16 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/SKU$', $metadata.compute.sku)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/SubscriptionId$', $metadata.compute.subscriptionId)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Tags$', $metadata.compute.tags)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/TagsList$',$metadata.compute.tagslist)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Version$', $metadata.compute.version)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Size$', $metadata.compute.vmSize)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/vmScaleSetName$', $metadata.computevmScaleSetName)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Zone$', $metadata.compute.zone)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/ResourceId$', $metadata.compute.ResourceId)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Provider$', $metadata.compute.Provider)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/azEnvironment$', $metadata.compute.azEnvironment)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Plan$', $metadata.compute.Plan)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/vmId$', $metadata.compute.vmId)
 			
 			$discoveryData.AddInstance($vm)
 
@@ -93,9 +101,9 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 		
 	} catch {
 		if ($_.Exception -is [System.Net.WebException] -and $_.Exception.Status -eq [System.Net.WebExceptionStatus]::Timeout) {
-			Log-SCOMMessage -message "Instance metadata servcie not available due to timeout - this is probably a Hyper-V VM."
+			Log-SCOMMessage -message "Instance metadata service not available due to timeout - this is probably a Hyper-V VM."
 		} else {
-			Log-SCOMMessage -message "Instance metadata servcie not available.  Error message is:`n $($_.Exception)"
+			Log-SCOMMessage -message "Instance metadata service not available.  Error message is:`n $($_.Exception)"
 		}
 	}
 }
