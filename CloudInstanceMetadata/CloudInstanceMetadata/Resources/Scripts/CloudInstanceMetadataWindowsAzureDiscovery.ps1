@@ -81,7 +81,7 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/SKU$', $metadata.compute.sku)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/SubscriptionId$', $metadata.compute.subscriptionId)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Tags$', $metadata.compute.tags)
-			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/TagsList$',$metadata.compute.tagslist)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/TagsList$',($metadata.compute.tagslist | ConvertTo-Json))
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Version$', $metadata.compute.version)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Size$', $metadata.compute.vmSize)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/vmScaleSetName$', $metadata.computevmScaleSetName)
@@ -89,7 +89,8 @@ if ($ForceAzure -or $azureAgentPresent -or $isMicrosoftVM) {
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/ResourceId$', $metadata.compute.ResourceId)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Provider$', $metadata.compute.Provider)
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/azEnvironment$', $metadata.compute.azEnvironment)
-			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Plan$', $metadata.compute.Plan)
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/Plan$', ($metadata.compute.Plan | ConvertTo-Json))
+			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/StorageProfile$', ($metadata.compute.storageProfile | ConvertTo-Json))
 			$vm.AddProperty('$MPElement[Name="CloudInstanceMetadata.Class.IaaSVM.Azure"]/vmId$', $metadata.compute.vmId)
 			
 			$discoveryData.AddInstance($vm)

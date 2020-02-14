@@ -25,6 +25,7 @@
           <Property ID="ResourceId" Key="false" Type="string"/>
           <Property ID="Provider" Key="false" Type="string"/>
           <Property ID="Plan" Key="false" Type="string"/>
+          <Property ID="StorageProfile" Key="false" Type="string"/>
           <Property ID="azEnvironment" Key="false" Type="string"/>
         </ClassType>
 
@@ -159,6 +160,11 @@
         <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Plan">
           <Name>Plan</Name>
           <Description>Plan containing name, product, and publisher for a VM if it is an Azure Marketplace Image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="StorageProfile">
+          <Name>StorageProfile</Name>
+          <Description>Details about the storage disks associated with the VM</Description>
         </DisplayString>
 
         <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="azEnvironment">
