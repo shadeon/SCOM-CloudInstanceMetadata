@@ -16,8 +16,17 @@
           <Property ID="SKU" Key="false" Type="string" />
           <Property ID="SubscriptionId" Key="false" Type="string" />
           <Property ID="Tags" Key="false" Type="string" />
+          <Property ID="TagsList" Key="false" Type="string" />
           <Property ID="Version" Key="false" Type="string" />
           <Property ID="Size" Key="false" Type="string" />
+          <Property ID="vmId" Key="false" Type="string"/>
+          <Property ID="vmScaleSetName" Key="false" Type="string"/>
+          <Property ID="Zone" Key="false" Type="string"/>
+          <Property ID="ResourceId" Key="false" Type="string"/>
+          <Property ID="Provider" Key="false" Type="string"/>
+          <Property ID="Plan" Key="false" Type="string"/>
+          <Property ID="StorageProfile" Key="false" Type="string"/>
+          <Property ID="azEnvironment" Key="false" Type="string"/>
         </ClassType>
 
         <ClassType ID="CloudInstanceMetadata.Class.IaaSVM.Azure.Windows" Base="CloudInstanceMetadata.Class.IaaSVM.Azure" Accessibility="Public" Abstract="false" Hosted="true" Singleton="false">
@@ -98,6 +107,11 @@
           <Description>Tags applied to the VM</Description>
         </DisplayString>
 
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="TagsList">
+          <Name>TagsList</Name>
+          <Description>Tags formatted as a JSON array for easier programmatic parsing</Description>
+        </DisplayString>
+
         <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="UpdateDomain">
           <Name>Update Domain</Name>
           <Description>The update domain your VM is running in</Description>
@@ -122,6 +136,47 @@
           <Name>Windows Computer hosts IaaS Azure Windows VM</Name>
           <Description>A Windows Computer hosts IaaS Azure Windows VM instance</Description>
         </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="vmScaleSetName">
+          <Name>VM Scale Set</Name>
+          <Description>The Scale set your VM is in</Description>
+        </DisplayString>
+          
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Zone">
+          <Name>Zone</Name>
+          <Description>Name of the data zone this VM is in</Description>
+        </DisplayString>
+        
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="ResourceId">
+          <Name>Azure Resource ID</Name>
+          <Description>The fully qualified ID of the resource, including the resource name and resource type.</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Provider">
+          <Name>Resource Provider</Name>
+          <Description>The Resource Provider</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="Plan">
+          <Name>Plan</Name>
+          <Description>Plan containing name, product, and publisher for a VM if it is an Azure Marketplace Image</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="StorageProfile">
+          <Name>StorageProfile</Name>
+          <Description>Details about the storage disks associated with the VM</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="azEnvironment">
+          <Name>Azure Environment</Name>
+          <Description>The environment that this VM is in</Description>
+        </DisplayString>
+
+        <DisplayString ElementID="CloudInstanceMetadata.Class.IaaSVM.Azure" SubElementID="vmId">
+          <Name>VM Id</Name>
+          <Description>The unique identifier for the VM</Description>
+        </DisplayString>
+        
 
       </DisplayStrings>
     </LanguagePack>
